@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09-OC'
+Description: default template generated for organization with master account 398495949130
+
+Organization:
+  ManagementAccount:
+    Type: OC::ORG::MasterAccount
+    Properties:
+      AccountName: root
+      AccountId: '398495949130'
+      RootEmail: aws+root@nourez.dev
+
+  OrganizationRoot:
+    Type: OC::ORG::OrganizationRoot
+    Properties:
+      DefaultOrganizationAccessRoleName: OrganizationAccountAccessRole
+
+
