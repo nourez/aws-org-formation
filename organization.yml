@@ -14,10 +14,74 @@ Organization:
     Properties:
       DefaultOrganizationAccessRoleName: OrganizationAccountAccessRole
 
+  SharedOU:
+    Type: OC::ORG::OrganizationalUnit
+    Properties:
+      OrganizationalUnitName: shared
+      Accounts:
+        - !Ref SecurityAccount
+        - !Ref ApplicationLoggingAccount
+        - !Ref SharedServicesAccount
+
+  DevelopmentOU:
+    Type: OC::ORG::OrganizationalUnit
+    Properties:
+      OrganizationalUnitName: development
+      Accounts:
+        - !Ref CloudResumeDev
+
+  ProductionOU:
+    Type: OC::ORG::OrganizationalUnit
+    Properties:
+      OrganizationalUnitName: production
+      Accounts:
+        - !Ref CloudResumeProd
+
   SandboxAccount:
     Type: OC::ORG::Account
     Properties:
       RootEmail: aws+sandbox@nourez.dev
       AccountName: sandbox
+      Tags:
+        budget-alarm-threshold: "15"
+
+  SecurityAccount:
+    Type: OC::ORG::Account
+    Properties:
+      RootEmail: aws+security@nourez.dev
+      AccountName: security
+      Tags:
+        budget-alarm-threshold: "5"
+
+  ApplicationLoggingAccount:
+    Type: OC::ORG::Account
+    Properties:
+      RootEmail: aws+applogging@nourez.dev
+      AccountName: application-logging
+      Tags:
+        budget-alarm-threshold: "5"
+
+  SharedServicesAccount:
+    Type: OC::ORG::Account
+    Properties:
+      RootEmail: aws+sharedservices@nourez.dev
+      AccountName: shared-services
+      Tags:
+        budget-alarm-threshold: "5"
+
+  CloudResumeDev:
+    Type: OC::ORG::Account
+    Properties:
+      RootEmail: aws+cloudresumedev@nourez.dev
+      AccountName: cloud-resume-dev
+      Tags:
+        budget-alarm-threshold: "10"
+        project: "cloud-resume-challenge"
+
+  CloudResumeProd:
+    Type: OC::ORG::Account
+    Properties:
+      RootEmail: aws+cloudresumeprod@nourez.dev
+      AccountName: cloud-resume-prod
       Tags:
         budget-alarm-threshold: "20"
