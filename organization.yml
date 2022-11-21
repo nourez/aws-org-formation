@@ -37,6 +37,22 @@ Organization:
       Accounts:
         - !Ref CloudResumeProd
 
+  SandboxOU:
+    Type: OC::ORG::OrganizationalUnit
+    Properties:
+      OrganizationalUnitName: sandboxes
+      Accounts:
+        - !Ref SandboxAccount
+        - !Ref TerraformSandboxAccount
+
+  TerraformSandboxAccount:
+    Type: OC::ORG::Account
+    Properties:
+      RootEmail: aws+terraformsandbox@nourez.dev
+      AccountName: terraform-sandbox
+      Tags:
+        budget-alarm-threshold: "5"
+
   SandboxAccount:
     Type: OC::ORG::Account
     Properties:
