@@ -1,0 +1,20 @@
+repo_name: nourez/aws-configuration
+report_id: 7d6570beb0ade891f5c069ea89e9f3dc
+version: 0.1
+repo_type: Public
+timestamp: '2024-03-02T16:38:03+00:00'
+requested_by: nourez
+provider: github
+branch: main
+detected_tools_count: 1
+tools:
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/nourez/aws-configuration
+  detection_source: Repo Metadata
